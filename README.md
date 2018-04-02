@@ -1,4 +1,4 @@
-# Disable and toggle WebRTC in macOS Safari <img src="https://github.com/JayBrown/Disable-and-toogle-WebRTC-in-macOS-Safari/blob/master/img/jb-img.png" height="20px"/>
+# Disable and toggle WebRTC in macOS Safari <img src="https://github.com/JayBrown/Disable-and-toggle-WebRTC-in-macOS-Safari/blob/master/img/jb-img.png" height="20px"/>
 
 WebRTC can be a serious security problem. While it is easy to disable WebRTC in Firefox, and fairly easy to do so in Chrome/Chromium (see [here](https://www.privacytools.io/#webrtc)), Apple doesn't let the user disable WebRTC in Safari.
 
@@ -31,9 +31,9 @@ To be on the safe side, you should **create a backup** of your boot volume befor
 ## Notes
 You can toggle WebRTC for Safari now, and you can include the `mv` commands in a **[BitBar](https://github.com/matryer/bitbar)** plugin, or embed the commands in an AppleScript that you can access from your AppleScript menulet: `do shell script "<mv command>"`
 
-You can leave out the `sudo chown admin:staff` command (_see above_); in this case the file `libwebrtc.dylib` will still belong to `root:wheel`, so you need to run the `mv` command with `sudo`. In automated setups (BitBar, AppleScript menu), you then need to add `with administrator privileges` to the commands:
+You can leave out the `sudo chown admin:staff` command (_see above_); in this case the file `libwebrtc.dylib` will still be owned `root:wheel`, so you need to run the `mv` command with `sudo`. In automated setups (BitBar, AppleScript menu), you then need to add `with administrator privileges` to the commands:
 
-* in a shell script (BitBar etc.): `osascript -e 'do shell script "<mv command>" with administrator privileges`
+* in a shell script (BitBar etc.): `osascript -e 'do shell script "<mv command>" with administrator privileges'`
 * in an Apple Script: `do shell script "<mv command>" with administrator privileges`
 
 ## Bugs
