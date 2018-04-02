@@ -26,7 +26,7 @@ To be on the safe side, you should **create a backup** of your boot volume befor
 * **Disable WebRTC**: `mv ~/Library/StagedFrameworks/Safari/libwebrtc.dylib ~/Library/StagedFrameworks/Safari/libwebrtc.dylib.out`
 * In Safari open a new tab and check the status of WebRTC again (_see above_)
   * _WebRTC Support Detection_ should now read "false"
-* To **reenabble WebRTC** run the opposite move command: `mv ~/Library/StagedFrameworks/Safari/libwebrtc.dylib.out ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
+* To **reenable WebRTC** run the reverse move command: `mv ~/Library/StagedFrameworks/Safari/libwebrtc.dylib.out ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
 
 ## Notes
 You can toggle WebRTC for Safari now, and you can include the `mv` commands in a **[BitBar](https://github.com/matryer/bitbar)** plugin, or embed the commands in an AppleScript that you can access from your AppleScript menulet: `do shell script "<mv command>"`
