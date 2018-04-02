@@ -1,6 +1,6 @@
 # Disable and toggle WebRTC in macOS Safari <img src="https://github.com/JayBrown/Disable-and-toggle-WebRTC-in-macOS-Safari/blob/master/img/jb-img.png" height="20px"/>
 
-WebRTC can be a serious security problem. While it is easy to disable WebRTC in Firefox, and fairly easy to do so in Chrome/Chromium (see [here](https://www.privacytools.io/#webrtc)), Apple doesn't let the user disable WebRTC in Safari.
+WebRTC can be a serious privacy & security problem. While it is easy to disable WebRTC in Firefox, and fairly easy to do so in Chrome/Chromium (see [here](https://www.privacytools.io/#webrtc)), Apple doesn't let the user disable WebRTC in Safari.
 
 With this hack you will be able to do so, but **_please note_** that you'll be messing (just a little bit) with a macOS system file. It is safe, and it can be reverted any time, but it's obviously not for the casual Mac user.
 
