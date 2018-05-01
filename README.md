@@ -17,7 +17,7 @@ To be on the safe side, you should **create a backup** of your boot volume befor
   * `mkdir -p ~/Library/StagedFrameworks/Safari`
   * `sudo mv /System/Library/StagedFrameworks/Safari/libwebrtc.dylib ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
   * `sudo chflags norestricted ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
-  * optional (recommended): `sudo chown admin:staff ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
+  * optional (recommended): `sudo chown $(id -un):$(id -gn) ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
   * `sudo ln -s ~/Library/StagedFrameworks/Safari/libwebrtc.dylib /System/Library/StagedFrameworks/Safari/libwebrtc.dylib`
 * Reenable SIP again (_see above_)
 * Launch Safari and determine status of WebRTC, e.g. on **[this website](https://browserleaks.com/webrtc)**
@@ -27,11 +27,14 @@ To be on the safe side, you should **create a backup** of your boot volume befor
 * In Safari open a new tab and check the status of WebRTC again (_see above_)
   * _WebRTC Support Detection_ should now read "false"
 * To **reenable WebRTC** run the reverse move command: `mv ~/Library/StagedFrameworks/Safari/libwebrtc.dylib.out ~/Library/StagedFrameworks/Safari/libwebrtc.dylib`
+* Always check `/System/Library/StagedFrameworks/Safari/` after a **Safari update**; if there has been a WebRTC update
+  * the symbolik link you created will be gone, and the updater will have placed a new `libwebrtc.dylib` there
+  * then you need to repeat the above process
 
 ## Notes
 You can toggle WebRTC for Safari now, and you can include the `mv` commands in a **[BitBar](https://github.com/matryer/bitbar)** plugin, or embed the commands in an AppleScript that you can access from your AppleScript menulet: `do shell script "<mv command>"`
 
-You can leave out the `sudo chown admin:staff` command (_see above_); in this case the file `libwebrtc.dylib` will still be owned by `root:wheel`, so you need to run the `mv` command with `sudo`. In automated setups (BitBar, AppleScript menu), you then need to add `with administrator privileges` to the commands:
+You can leave out the `sudo chown $(id -un):$(id -gn)` command (_see above_); in this case the file `libwebrtc.dylib` will still be owned by `root:wheel`, so you need to run the `mv` command with `sudo`. In automated setups (BitBar, AppleScript menu), you then need to add `with administrator privileges` to the commands:
 
 * in a shell script (BitBar etc.): `osascript -e 'do shell script "<mv command>" with administrator privileges'`
 * in an Apple Script: `do shell script "<mv command>" with administrator privileges`
